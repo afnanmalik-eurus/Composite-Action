@@ -4,7 +4,7 @@ description: Basic Example of Composite Action
 inputs:
   nodeVersion:
     description: Node.js Version 
-    required: false
+    required: true
     default: '18.x'
 
 outputs: 
@@ -19,10 +19,10 @@ runs:
       run: echo " Hello From Composite Action! "
       shell: bash
     
-    - name: Node.js version
+    - name: setup node.js ${{ inputs.nodeVersion}}
       uses: actions/setup-node@v4
       with:
-        nodeVersion: '18.x'
+        nodeVersion: ${{ inputs.node-version }}
 
     - name: print node version
       run: node -v
