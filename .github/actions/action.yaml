@@ -29,6 +29,7 @@ runs:
       shell: bash
 
     - name: variables
+      id: vars
       run: |
         echo "RepositoryOwner=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
       shell: bash
