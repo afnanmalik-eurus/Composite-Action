@@ -1,18 +1,40 @@
 name: Basic Composite Action
 description: Basic Example of Composite Action 
 
+inputs:
+  nodeVersion:
+    description: Node.js Version 
+    required: false
+    default: '18.x'
+
+outputs: 
+  repoOwner:
+    description: "Print Repo Owner"
+    value: ${{ steps.vars.outputs.RepositoryOwner }}
+
 runs:
   using: 'composite'
   steps:
     - name: print Hello 
       run: echo " Hello From Composite Action! "
       shell: bash
+    
+    - name: print Node.js version
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
 
     - name: print working directory
       run: echo "Working in $(pwd)"
       shell: bash
 
+    - name: variables
+      run: |
+        echo "RepositoryOwner=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
+      shell: bash
 
+
+D
 
 
   
