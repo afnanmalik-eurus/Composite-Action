@@ -14,8 +14,8 @@ jobs:
           - uses: actions/checkout@v4
           - uses: ./.github/actions/
             with:
-              id: repoName
               node-version: 22.15
+              id: repoName
 
           - name: Print Output
             run: echo "Repo Owner is ${{ steps.repoName.outputs.repoOwner }}"
