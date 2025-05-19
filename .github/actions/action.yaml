@@ -22,7 +22,7 @@ runs:
     - name: setup node.js ${{ inputs.nodeVersion}}
       uses: actions/setup-node@v4
       with:
-        nodeVersion: ${{ inputs.node-version }}
+        nodeVersion: ${{ inputs.nodeVersion }}
 
     - name: print node version
       run: node -v
