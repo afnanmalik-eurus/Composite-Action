@@ -19,13 +19,13 @@ runs:
       run: echo " Hello From Composite Action! "
       shell: bash
     
-    - name: print Node.js version
+    - name: Node.js version
       uses: actions/setup-node@v4
       with:
         node-version: '18.x'
 
-    - name: print working directory
-      run: echo "Working in $(pwd)"
+    - name: print node version
+      run: node -v
       shell: bash
 
     - name: variables
