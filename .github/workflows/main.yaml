@@ -13,5 +13,5 @@ jobs:
             - uses: ./.github/actions/
               with:
                 node-version: '18'
-                install-command: npm install
+                install-command: 'npm install'
 
