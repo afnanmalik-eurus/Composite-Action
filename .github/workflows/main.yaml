@@ -12,6 +12,6 @@ jobs:
             - uses: actions/checkout@v4
             - uses: ./.github/actions/
               with:
-                node-version: '22.15'
+                nodeVersion: 22.15
 
 
