@@ -13,11 +13,11 @@ jobs:
         steps:
           - uses: actions/checkout@v4
           - uses: ./.github/actions/
-            id: repoName
             with:
+              id: repoName
               node-version: 22.15
-            
-              run: |
-                echo "Repo Owner: ${{ steps.getInfo.outputs.repoOwner }}"
-                echo "Repo Name:  ${{ steps.getInfo.outputs.repoName }}"
+
+          - name: Print Output
+            run: echo "Repo Owner is ${{ steps.repoName.outputs.repoOwner }}"
+
 
