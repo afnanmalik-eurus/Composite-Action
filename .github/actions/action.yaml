@@ -2,7 +2,7 @@ name: Basic Composite Action
 description: Basic Example of Composite Action 
 
 inputs:
-  nodeVersion:
+  node-version:
     description: Node.js Version 
     required: false
     default: '18.x'
