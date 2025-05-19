@@ -13,8 +13,8 @@ jobs:
         steps:
           - uses: actions/checkout@v4
           - uses: ./.github/actions/
+            id: repoName
             with:
-              id: repoName
               node-version: 22.15
 
           - name: Print Output
