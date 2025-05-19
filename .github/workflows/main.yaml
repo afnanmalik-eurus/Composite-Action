@@ -12,8 +12,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v4
-            id: my-action
           - uses: ./.github/actions/
+            id: my-action
             with:
               node-version: 22.15
 
