@@ -17,7 +17,7 @@ runs:
       shell: bash
 
     - name: print working directory
-      run: echo "Working in $(pwd)"
+      run: node -v
       shell: bash
 
 
