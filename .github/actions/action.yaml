@@ -4,6 +4,14 @@ description: Basic Example of Composite Action
 runs:
   using: 'composite'
   steps:
+    - name: setup node.js
+      uses: actions/setup-node@v3
+      with: 
+        node-version: ${{ inputs.node-version }} 
+    - name: Install dependenicies 
+      run: ${{ inputs.install-command }}
+      shell: bash
+
     - name: print Hello 
       run: echo " Hello From Composite Action! "
       shell: bash
