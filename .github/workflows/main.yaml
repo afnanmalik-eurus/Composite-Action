@@ -12,11 +12,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v4
+            id: my-action
           - uses: ./.github/actions/
             with:
               node-version: 22.15
 
           - name: Print Output
-            run: echo "Repo Owner is ${{ steps.repoName.outputs.repoOwner }}"
+            run: echo "Repo Owner is ${{ steps.my-action.outputs.repoOwner }}
+            
 
 
