@@ -22,7 +22,7 @@ runs:
     - name: Node.js version
       uses: actions/setup-node@v4
       with:
-        node-version: '18.x'
+        nodeVersion: '18.x'
 
     - name: print node version
       run: node -v
