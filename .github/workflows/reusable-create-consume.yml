@@ -21,6 +21,25 @@ jobs:
         uses: ./.github/actions/create-file
         id: create_file
 
+      - name: Debug create_file outputs and workspace
+        run: |
+          echo "DEBUG: step outputs for create_file:"
+          echo "steps.create_file.outputs.file_path='${{ steps.create_file.outputs.file_path }}'"
+          echo "Listing workspace:"
+          ls -la "$GITHUB_WORKSPACE" || true
+          FILE_PATH='${{ steps.create_file.outputs.file_path }}'
+          if [ -n "$FILE_PATH" ]; then
+            echo "Checking file: $FILE_PATH"
+            if [ -f "$FILE_PATH" ]; then
+              echo "File exists — head of file:";
+              sed -n '1,200p' "$FILE_PATH" || true
+            else
+              echo "File does not exist at path: $FILE_PATH"
+            fi
+          else
+            echo "No file_path output was set by the action."
+          fi
+
       - name: Map step output to job output
         id: map_out
         run: |
