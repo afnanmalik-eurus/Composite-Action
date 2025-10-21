@@ -1,0 +1,20 @@
+name: "Consume File"
+description: "Composite action that reads a given file path and prints its contents"
+inputs:
+  file-path:
+    description: "Path to the file to read"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Print file contents
+      shell: bash
+      run: |
+        FILE="${{ inputs.file-path }}"
+        echo "Reading file: $FILE"
+        if [ -f "$FILE" ]; then
+          cat "$FILE"
+        else
+          echo "File does not exist: $FILE" >&2
+          exit 1
+        fi

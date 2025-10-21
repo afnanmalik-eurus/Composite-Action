@@ -12,13 +12,19 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v4
-          - uses: ./.github/actions/
-            id: my-action
-            with:
-              node-version: 22.15
 
-          - name: Print Output
-            run: echo "Repo Owner is ${{ steps.my-action.outputs.repoOwner }}" 
+          - name: Run create-file action
+            uses: ./.github/actions/create-file
+            id: create_file
+
+          - name: Run consume-file action with created path
+            uses: ./.github/actions/consume-file
+            with:
+              file-path: ${{ steps.create_file.outputs.file-path }}
+
+          - name: Print summary
+            run: |
+              echo "Created file path: ${{ steps.create_file.outputs.file-path }}"
 
 
 
