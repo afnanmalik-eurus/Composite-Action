@@ -13,7 +13,7 @@ runs:
       run: |
         mkdir -p "$GITHUB_WORKSPACE"
         FILE="$GITHUB_WORKSPACE/hello.txt"
-        printf 'Hello from create-file action\n' > "$FILE"
+        printf 'Hello World from create-file action\n' > "$FILE"
         echo "Created file at: $FILE"
         # set output for the step so the action can map it to its outputs
         echo "file_path=$FILE" >> $GITHUB_OUTPUT
