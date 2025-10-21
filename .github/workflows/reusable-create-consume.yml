@@ -10,6 +10,7 @@ on:
     outputs:
       file_path:
         description: "Path to the created file"
+        value: ${{ jobs.create_and_publish.outputs.file_path }}
 
 jobs:
   create_and_publish:
