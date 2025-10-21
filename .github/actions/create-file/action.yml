@@ -1,7 +1,7 @@
 name: "Create File"
 description: "Composite action that creates a hello file and outputs its path"
 outputs:
-  file-path:
+  file_path:
     description: "Path to the created file"
     value: ${{ steps.create.outputs.file_path }}
 runs:
@@ -15,5 +15,5 @@ runs:
         FILE="$GITHUB_WORKSPACE/hello.txt"
         printf 'Hello World from create-file action\n' > "$FILE"
         echo "Created file at: $FILE"
-        # set output for the step so the action can map it to its outputs
-        echo "file_path=$FILE" >> $GITHUB_OUTPUT
+  # set output for the step so the action can map it to its outputs
+  echo "file_path=$FILE" >> $GITHUB_OUTPUT

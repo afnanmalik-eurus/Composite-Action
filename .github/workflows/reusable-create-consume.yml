@@ -1,0 +1,27 @@
+name: Reusable Create and Consume
+
+on:
+  workflow_call:
+    inputs:
+      filename:
+        description: "Optional filename to create (not used by default action)"
+        required: false
+        type: string
+
+jobs:
+  create_and_publish:
+    runs-on: ubuntu-latest
+    outputs:
+      file_path: ${{ steps.map_out.outputs.file_path }}
+    steps:
+      - name: Checkout (not strictly required for composite action write target)
+        uses: actions/checkout@v4
+
+      - name: Run create-file action
+        uses: ./.github/actions/create-file
+        id: create_file
+
+      - name: Map step output to job output
+        id: map_out
+        run: |
+          echo "file_path=${{ steps.create_file.outputs.file_path }}" >> $GITHUB_OUTPUT
