@@ -10,7 +10,7 @@ runs:
     - name: Print file contents
       shell: bash
       run: |
-  FILE="${{ inputs.file_path }}"
+        FILE="${{ inputs.file_path }}"
         echo "Reading file: $FILE"
         if [ -f "$FILE" ]; then
           cat "$FILE"
