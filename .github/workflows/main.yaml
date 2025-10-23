@@ -13,18 +13,9 @@ jobs:
         steps:
           - uses: actions/checkout@v4
 
-          - name: Run create-file action
-            uses: ./.github/actions/create-file
-            id: create_file
-
-          - name: Run consume-file action with created path
-            uses: ./.github/actions/consume-file
-            with:
-              file_path: ${{ steps.create_file.outputs.file_path }}
-
           - name: Print summary
             run: |
-              echo "Created file path: ${{ steps.create_file.outputs.file_path }}"
+              echo "Main action completed successfully!"
 
 
 
