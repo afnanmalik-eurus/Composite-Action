@@ -13,6 +13,12 @@ jobs:
         steps:
           - uses: actions/checkout@v4
 
+          - name: Run composite action
+            id: composite
+            uses: ./.github/actions
+            with:
+              node-version: '18.x'
+
           - name: Print summary
             run: |
               echo "Main action completed successfully!"
