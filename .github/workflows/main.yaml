@@ -15,7 +15,7 @@ jobs:
 
           - name: Run composite action
             id: composite
-            uses: EurusTechnologies/TestCompositeAction/.github/actions/deploy@main
+            uses: afnanmalik-eurus/TestCompositeAction/.github/actions/deploy@main
             with:
               node-version: '18.x'
 
