@@ -18,8 +18,6 @@ jobs:
             uses: afnanmalik-eurus/TestCompositeAction/.github/actions/deploy@main
             with:
               node-version: '18.x'
-            env:
-              GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
           - name: Print summary
             run: |
