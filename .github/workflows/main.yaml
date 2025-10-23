@@ -16,8 +16,6 @@ jobs:
           - name: Run composite action
             id: composite
             uses: afnanmalik-eurus/TestCompositeAction/.github/actions/deploy@main
-            with:
-              node-version: '18.x'
 
           - name: Print summary
             run: |
