@@ -23,7 +23,7 @@ jobs:
 
           - name: Print summary
             run: |
-              echo "Main action completed successfully"
+              echo "Main action completed successfully!"
 
 
 
