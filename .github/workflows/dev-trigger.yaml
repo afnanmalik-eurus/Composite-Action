@@ -1,11 +1,13 @@
 name: Developer Trigger Workflow
 
 on:
-  workflow_dispatch:   
+  workflow_dispatch:   # Manual trigger for testing
 
 jobs:
-  trigger-devops:
+  read-and-trigger:
     runs-on: ubuntu-latest
+    outputs:
+      file_content: ${{ steps.read_file.outputs.file_content }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,7 +20,8 @@ jobs:
           echo "$CONTENT" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      - name: Call reusable workflow from DevOps repo
-        uses: afnanmalik-eurus/TestCompositeAction/.github/workflows/reusable-workflow.yaml@main
-        with:
-          file_content: ${{ steps.read_file.outputs.file_content }}
+  call-reusable:
+    needs: read-and-trigger
+    uses: afnanmalik-eurus/TestCompositeAction/.github/workflows/reusable-workflow.yaml@main
+    with:
+      file_content: ${{ needs.read-and-trigger.outputs.file_content }}
