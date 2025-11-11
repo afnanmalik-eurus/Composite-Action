@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call Cat Hello Action
-        uses: afnanmalik-eurus/TestCompositeAction/.github/actions@main
+        uses: afnanmalik-eurus/TestCompositeAction/actions@main
 
