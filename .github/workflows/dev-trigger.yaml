@@ -5,7 +5,6 @@ on:
 
 jobs:
   call-reusable:
-    runs-on: ubuntu-latest
     uses: afnanmalik-eurus/TestCompositeAction/.github/workflows/reusable-workflow.yaml@main
     with:
       file-path: hello.txt
